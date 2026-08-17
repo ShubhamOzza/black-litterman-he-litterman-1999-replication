@@ -1,0 +1,25 @@
+# Core scientific stack (required)
+# Pinned to the exact versions this script was tested against for reproducibility.
+numpy==2.4.2
+pandas==2.2.3
+scipy==1.17.0
+matplotlib==3.10.8
+
+# Ledoit-Wolf shrinkage covariance (strongly recommended; a closed-form
+# fallback inside the script is used if this is missing). Installed and
+# actively used (not the fallback) in the reference environment this
+# project was verified against (scikit-learn 1.8.0).
+scikit-learn>=1.3
+
+# Primary constrained quadratic-programming solver (strongly recommended;
+# a scipy SLSQP fallback inside the script is used if this is missing).
+# NOT installed in the reference environment this project was verified
+# against: every reported result, figure, and CSV in outputs/ was produced
+# by the scipy SLSQP fallback, not cvxpy. Install cvxpy to exercise the
+# primary solver path; the script auto-detects it and prints which backend
+# actually ran ("Solver backend: cvxpy" or "Solver backend: scipy SLSQP
+# fallback").
+cvxpy>=1.4
+
+# Live market data download for --mode yfinance (optional)
+yfinance>=0.2.40
